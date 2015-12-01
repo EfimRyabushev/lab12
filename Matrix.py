@@ -25,10 +25,12 @@ class LinearSpace():
 class Matrix(LinearSpace):
     def __init__(self, m, n = None):
         if isinstance(n, type(None)):
+            assert (isinstance(m, type([[1,2]])))
             self.matrix = m
         else:
             condition = isinstance(m, type(1)) and isinstance(n, type(1))
             assert (condition)
+            assert (m > 0 and n > 0)
             self.matrix = [[None for j in range(n)] for i in  range(m)]
 
     def output(self):

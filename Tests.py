@@ -25,22 +25,22 @@ class SimpleTests(TestCase):
         """Создание матрицы с неправильными аргументами"""
 
         # передаём неверные аргументы и проверяем, что генерируется исключение
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertationError):
             Matrix(0, 1)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertationError):
             Matrix(1, 0)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertationError):
             Matrix(-1, 1)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertationError):
             Matrix(1, -1)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertationError):
             Matrix(1.0, 1)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertationError):
             Matrix(1, 1.0)
 
     def testMatrixSet(self):
@@ -224,10 +224,10 @@ class SimpleTests(TestCase):
         # выполняем некорректное матричное умножением и проверяем,
         # что генерируется исключение
 
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(AssertationError):
             Matrix(1, 2) * Matrix(1, 2)
 
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(AssertationError):
             Matrix(2, 2) * Matrix(1, 2)
 
 
@@ -236,10 +236,10 @@ class NotSoSimpleTests(TestCase):
         """Создание матрицы с неправильными аргументами"""
 
         # передаём неверные аргументы и проверяем, что генерируется исключение
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertationError):
             Matrix([], 123)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AssertationError):
             Matrix(123, [])
 
     def testMatrixConstructionWithInitialization(self):
@@ -264,7 +264,7 @@ class NotSoSimpleTests(TestCase):
 
         # пытаемся сравнить матрицы разного размера и проверям,
         # что генерируется исключение
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(AssertationError):
             Matrix(1, 1) == Matrix(2, 2)
 
     def testDeterminant(self):
@@ -272,10 +272,10 @@ class NotSoSimpleTests(TestCase):
 
         # проверяем, что попытка вычислить определитель для прямоугольной матрицы
         # приводит к генерации исключения
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(AssertationError):
             Matrix(1, 2).determinant()
 
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(AssertationError):
             Matrix(2, 1).determinant()
 
         # вычисляем определитель и проверяем результат
